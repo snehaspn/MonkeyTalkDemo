@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MonkeyTalk API Docs v1.0.47</title>
+<style type="text/css">
+ul#components { padding:0 0 8px 0; margin:0 0 0 8px; list-style:none; }
+div#idx { float:right; }
+div#idx ul { margin-right:12px; background-color:#ccc; padding:8px; list-style:none; }
+div#idx ul li a { color:#333; text-decoration:none; }
+div#idx ul li a:hover { color:#666; text-decoration:underline; }
+h3 { padding:0; margin:16px 0 0 0; }
+.desc { color:#333; padding:4px 0 6px 0; margin:0; }
+.idxlbl { }
+.idxchk { margin-right:6px; }
+.flex { display:none; }
+</style>
+</head>
+<body>
+<h1>MonkeyTalk API Docs v1.0.47</h1>
+<div id="idx">
+<ul>
+  <li class=""><a href="#App">App</a></li>
+  <li class=""><a href="#Browser">Browser</a></li>
+  <li class=""><a href="#Button">Button</a></li>
+  <li class=""><a href="#ButtonSelector">ButtonSelector</a></li>
+  <li class=""><a href="#CheckBox">CheckBox</a></li>
+  <li class=""><a href="#DatePicker">DatePicker</a></li>
+  <li class=""><a href="#Debug">Debug</a></li>
+  <li class=""><a href="#Device">Device</a></li>
+  <li class=""><a href="#Doc">Doc</a></li>
+  <li class=""><a href="#Image">Image</a></li>
+  <li class=""><a href="#IndexedSelector">IndexedSelector</a></li>
+  <li class=""><a href="#Input">Input</a></li>
+  <li class=""><a href="#ItemSelector">ItemSelector</a></li>
+  <li class=""><a href="#Label">Label</a></li>
+  <li class=""><a href="#Link">Link</a></li>
+  <li class=""><a href="#Menu">Menu</a></li>
+  <li class=""><a href="#NumericSelector">NumericSelector</a></li>
+  <li class=""><a href="#RadioButtons">RadioButtons</a></li>
+  <li class=""><a href="#RatingBar">RatingBar</a></li>
+  <li class=""><a href="#Script">Script</a></li>
+  <li class=""><a href="#Scroller">Scroller</a></li>
+  <li class=""><a href="#Setup">Setup</a></li>
+  <li class=""><a href="#Slider">Slider</a></li>
+  <li class=""><a href="#Stepper">Stepper</a></li>
+  <li class=""><a href="#Suite">Suite</a></li>
+  <li class=""><a href="#System">System</a></li>
+  <li class=""><a href="#TabBar">TabBar</a></li>
+  <li class=""><a href="#Table">Table</a></li>
+  <li class=""><a href="#Teardown">Teardown</a></li>
+  <li class=""><a href="#Test">Test</a></li>
+  <li class=""><a href="#TextArea">TextArea</a></li>
+  <li class=""><a href="#Toggle">Toggle</a></li>
+  <li class=""><a href="#ToolBar">ToolBar</a></li>
+  <li class=""><a href="#Vars">Vars</a></li>
+  <li class=""><a href="#Verifiable">Verifiable</a></li>
+  <li class=""><a href="#VideoPlayer">VideoPlayer</a></li>
+  <li class=""><a href="#View">View</a></li>
+</ul>
+</div>
+<ul id="components">
+  <li id="App"><a name="App"></a><h3>App</h3><p class="desc">The application under test.</p><ul>
+    <li><b>Exec(method:String, args:String):void</b> - Execute a method on a native class. The method must take zero or more String arguments. The class is given in the monkeyId by its fully qualified class name.<ul>
+      <li><i>method</i> - the method to call</li>
+      <li><i>args</i> - the String args to be supplied to the method</li></ul></li>
+    <li><b>ExecAndReturn(variable:String, method:String, args:String):String</b> - Execute a method on a native class. The method must take zero or more String arguments and return a String result. The returned value is set into the given variable name. The class is given in the monkeyId by its fully qualified class name.<ul>
+      <li><i>variable</i> - the name of the variable to set</li>
+      <li><i>method</i> - the method to call</li>
+      <li><i>args</i> - the String args to be supplied to the method</li></ul></li></ul></li>
+  <li id="Browser"><a name="Browser"></a><h3>Browser</h3><p class="desc">The browser hosting the webapp under test.</p><ul>
+    <li><b>Open(url:String):void</b> - Open the given url.<ul>
+      <li><i>url</i> - the url to be opened</li></ul></li>
+    <li><b>Back():void</b> - Navigate the browser back to the previous page. Ignored if this is the first page.</li>
+    <li><b>Forward():void</b> - Navigate the browser forward to the next page. Ignored if this is the last page.</li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the current url</li></ul></li></ul></li>
+  <li id="Button"><a name="Button"></a><h3>Button</h3><p class="desc">A Button. iOS: UIButton. Android: Button. Web: Button tag, or Input tag with type='submit' or type='reset'. If the button has a label, it is used as the monkeyId.</p><ul>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the button label text</li></ul></li></ul></li>
+  <li id="ButtonSelector"><a name="ButtonSelector"></a><h3>ButtonSelector</h3><p class="desc">A group of radio (mutually exclusive) buttons. iOS: UISegmentedControl. Android: RadioGroup. Web: A set of Input tags with type='radio' and name='group'.</p><ul>
+    <li><b>Select(value:String):void</b> - Select an item by value.<ul>
+      <li><i>value</i> - the value of the item to select.</li></ul></li>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the selected button's label</li>
+      <li><b>item</b> - (array) the text of the item per row (and per section on iOS)</li>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li></ul></li></ul></li>
+  <li id="CheckBox"><a name="CheckBox"></a><h3>CheckBox</h3><p class="desc">A component that can be checked or unchecked. iOS: ignored. Android: CheckBox.</p><ul>
+    <li><b>On():void</b> - Check the checkbox.</li>
+    <li><b>Off():void</b> - Uncheck the checkbox.</li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the state of the checkbox (either 'on' or 'off')</li></ul></li></ul></li>
+  <li id="DatePicker"><a name="DatePicker"></a><h3>DatePicker</h3><p class="desc">A component that edits a date. iOS: UIDatePicker. Android: DatePicker.</p><ul>
+    <li><b>EnterDate(date:String):void</b> - Enter the date value.<ul>
+      <li><i>date</i> - A date with the format YYYY-MM-DD where YYYY is the year, MM is the month (01-12), and DD is the day (01-31).</li></ul></li>
+    <li><b>EnterTime(time:String):void</b> - Enter the time value.<ul>
+      <li><i>time</i> - A time with the format hh:mm am/pm, where hh is the hour (01-12), mm is the minute (00-59), and am/pm is the marker.</li></ul></li>
+    <li><b>EnterDateAndTime(dateAndTime:String):void</b> - Enter the date and time value.<ul>
+      <li><i>dateAndTime</i> - A date and time with the format YYYY-MM-DD hh:mm am/pm, where YYYY is the year, MM is the month (01-12), DD is the day (01-31), hh is the hour (01-12), mm is the minute (00-59), and am/pm is the marker.</li></ul></li>
+    <li><b>EnterCountDownTimer(timer:String):void</b> - Enter the count down timer value. (iOS only)<ul>
+      <li><i>timer</i> - A timer with the format hh:mm, where hh is the hour (00-23), and mm is the minute (00-59).</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the date (as YYYY-MM-DD), or time (as HH:MM am/pm), or date and time (as YYYY-MM-DD HH:MM am/pm)</li></ul></li></ul></li>
+  <li id="Debug"><a name="Debug"></a><h3>Debug</h3><p class="desc">Logging and diagnostics.</p><ul>
+    <li><b>Vars():void</b> - Print all variables (and their values) that are currently in the local scope.</li>
+    <li><b>Print(message:String):void</b> - Print the given message. Use this to add debugging messages to script output.<ul>
+      <li><i>message</i> - the message to be printed</li></ul></li></ul></li>
+  <li id="Device"><a name="Device"></a><h3>Device</h3><p class="desc">The device hosting the application under test.</p><ul>
+    <li><b>Shake():void</b> - Shake the device. iOS: works great. Android: not yet implemented.</li>
+    <li><b>Rotate(direction:String):void</b> - Change the device orientation.<ul>
+      <li><i>direction</i> - iOS: 'left' or 'right', Android: 'portrait' or 'landscape'</li></ul></li>
+    <li><b>Back():void</b> - Navigate back. iOS: Pops the current UINavigationItem (if there is one). Android: Presses the hardware device key.</li>
+    <li><b>Forward():void</b> - Navigate forward. iOS: Pushes the next UINavigationItem, if there is one. Android: ignored.</li>
+    <li><b>Search():void</b> - Press the search key. iOS: ignored. Android: Presses the device search key.</li>
+    <li><b>Menu():void</b> - Press the menu key. iOS: ignored. Android: Presses the device menu key.</li>
+    <li><b>Screenshot():void</b> - Take a screenshot of the app under test.</li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the device OS</li>
+      <li><b>os</b> - the device OS (ex: iOS or Android)</li>
+      <li><b>version</b> - the device OS version (ex: 5.1.1 or 2.3.3)</li>
+      <li><b>resolution</b> - the device screen resolution in pixels (ex: 640x960)</li>
+      <li><b>name</b> - the device name (ex: iPhone 4S)</li>
+      <li><b>orientation</b> - the device orientation (either 'portrait' or 'landscape')</li></ul></li></ul></li>
+  <li id="Doc"><a name="Doc"></a><h3>Doc</h3><p class="desc">Document the script and its named variables.</p><ul>
+    <li><b>Vars(args:String):void</b> - Document the named variables used in the script.<ul>
+      <li><i>args</i> - the named variables and their doc, in the form of: var='some doc' var2='other doc'</li></ul></li>
+    <li><b>Script(doc:String):void</b> - Document the script itself.<ul>
+      <li><i>doc</i> - the doc</li></ul></li></ul></li>
+  <li id="Image"><a name="Image"></a><h3>Image</h3><p class="desc">An image. iOS: UIImage, Android: ImageView.</p><ul>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the image src (if available)</li></ul></li></ul></li>
+  <li id="IndexedSelector"><a name="IndexedSelector"></a><h3>IndexedSelector</h3><p class="desc">A component that provides for selection of an item from a list of items. Item selection is recorded and played back with an index indicating the selected item.</p><ul>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Input"><a name="Input"></a><h3>Input</h3><p class="desc">A single-line input field. iOS: UITextField. Android: single-line editable TextView. Web: Input tag with type='text'. If the input as a hint/prompt, it is used as the monkeyId.</p><ul>
+    <li><b>EnterText(text:String, hitEnter:String):void</b> - Enter text into the input field.<ul>
+      <li><i>text</i> - the text to enter</li>
+      <li><i>hitEnter</i> - if 'enter', hit the Enter/Return/Done/Next key after entering the text.</li></ul></li>
+    <li><b>Clear():void</b> - Clear text from the input field.</li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the input field text</li></ul></li></ul></li>
+  <li id="ItemSelector"><a name="ItemSelector"></a><h3>ItemSelector</h3><p class="desc">A component that provides for selecting a text item from a list of items. iOS: UIPickerView. Android: UISpinner. Web: Select tag.</p><ul>
+    <li><b>Select(value:String):void</b> - Select an item by value.<ul>
+      <li><i>value</i> - the value of the item to select.</li></ul></li>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>item</b> - (array) the text of the item per row (and per section on iOS)</li>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Label"><a name="Label"></a><h3>Label</h3><p class="desc">A read-only text field. iOS: UILabel. Android: An uneditable TextView.</p><ul>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the label text</li></ul></li></ul></li>
+  <li id="Link"><a name="Link"></a><h3>Link</h3><p class="desc">A web hypertext link.</p><ul>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the label text</li></ul></li></ul></li>
+  <li id="Menu"><a name="Menu"></a><h3>Menu</h3><p class="desc">A menu UI component. iOS: TabBar. Android: Menu</p><ul>
+    <li><b>Select(value:String):void</b> - Select an item by value.<ul>
+      <li><i>value</i> - the value of the item to select.</li></ul></li>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>item</b> - (array) the text of the item per row (and per section on iOS)</li>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="NumericSelector"><a name="NumericSelector"></a><h3>NumericSelector</h3><p class="desc">A component that provides for selecting a number for a set of numbers.</p><ul>
+    <li><b>Select(value:float):void</b> - Select a numeric value<ul>
+      <li><i>value</i> - the value to select</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>min</b> - the minimum value</li>
+      <li><b>max</b> - the maximum value</li>
+      <li><b>value</b> - the selected value</li></ul></li></ul></li>
+  <li id="RadioButtons"><a name="RadioButtons"></a><h3>RadioButtons</h3><p class="desc">A RadioButton group. An alias for ButtonSelector.</p><ul>
+    <li><b>Select(value:String):void</b> - Select an item by value.<ul>
+      <li><i>value</i> - the value of the item to select.</li></ul></li>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the selected button's label</li>
+      <li><b>item</b> - (array) the text of the item per row (and per section on iOS)</li>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li></ul></li></ul></li>
+  <li id="RatingBar"><a name="RatingBar"></a><h3>RatingBar</h3><p class="desc">A component that captures a rating (eg, with stars). iOS: Slider. Android: RatingBar.</p><ul>
+    <li><b>Select(value:float):void</b> - Select a numeric value<ul>
+      <li><i>value</i> - the value to select</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>min</b> - the minimum value</li>
+      <li><b>max</b> - the maximum value</li>
+      <li><b>value</b> - the selected value</li></ul></li></ul></li>
+  <li id="Script"><a name="Script"></a><h3>Script</h3><p class="desc">A MonkeyTalk script. The monkeyId is the name of the script. If no extension is specified, then the script runner will first search for a .js file, and if one is not found, the runner will then search for an .mt file.</p><ul>
+    <li><b>Run(args:String):String</b> - Run the script with the given args.<ul>
+      <li><i>args</i> - the arguments</li></ul></li>
+    <li><b>RunWith(args:String):void</b> - Data-drive the script with the given CSV data file.<ul>
+      <li><i>args</i> - the arguments (where the first arg is the datafile)</li></ul></li></ul></li>
+  <li id="Scroller"><a name="Scroller"></a><h3>Scroller</h3><p class="desc">A component that provides a scrollable view of its contents. iOS: UIScrollView. Android: Scroller.</p><ul>
+    <li><b>Scroll(x:int, y:int):void</b> - Scroll to the specified coordinates.<ul>
+      <li><i>x</i> - the x-coordinate (horizontal)</li>
+      <li><i>y</i> - the y-coordinate (vertical)</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Setup"><a name="Setup"></a><h3>Setup</h3><p class="desc">A MonkeyTalk script run before each test script in the suite.</p><ul>
+    <li><b>Run(args:String):String</b> - Run the script with the given args.<ul>
+      <li><i>args</i> - the arguments</li></ul></li>
+    <li><b>RunWith(args:String):void</b> - Data-drive the script with the given CSV data file.<ul>
+      <li><i>args</i> - the arguments (where the first arg is the datafile)</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li></ul></li>
+  <li id="Slider"><a name="Slider"></a><h3>Slider</h3><p class="desc">A Slider control. iOS: UISlider. Android: SeekBar.</p><ul>
+    <li><b>Select(value:float):void</b> - Select a numeric value<ul>
+      <li><i>value</i> - the value to select</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>min</b> - the minimum value</li>
+      <li><b>max</b> - the maximum value</li>
+      <li><b>value</b> - the selected value</li></ul></li></ul></li>
+  <li id="Stepper"><a name="Stepper"></a><h3>Stepper</h3><p class="desc">A stepper control. iOS: UIStepper. Android: ignored.</p><ul>
+    <li><b>Increment():void</b> - Increase the value by the stepsize. Ignored if at max.</li>
+    <li><b>Decrement():void</b> - Decrease the value by the stepsize. Ignore if at min.</li>
+    <li><b>Select(value:float):void</b> - Select a numeric value<ul>
+      <li><i>value</i> - the value to select</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>stepsize</b></li>
+      <li><b>min</b> - the minimum value</li>
+      <li><b>max</b> - the maximum value</li>
+      <li><b>value</b> - the selected value</li></ul></li></ul></li>
+  <li id="Suite"><a name="Suite"></a><h3>Suite</h3><p class="desc">A MonkeyTalk suite. The monkeyId is the name of the suite, including the .mts extension.</p><ul>
+    <li><b>Run(args:String):String</b> - Run the suite with the given args.<ul>
+      <li><i>args</i> - the arguments</li></ul></li></ul></li>
+  <li id="System"><a name="System"></a><h3>System</h3><p class="desc">The system running the tests (aka the runner).</p><ul>
+    <li><b>Exec(command:String):void</b> - Execute the given command on the system. The system is the computer running the tests, not to be confused with the app under test that runs in the simulator/emulator or on the device.<ul>
+      <li><i>command</i> - the system command to execute</li></ul></li>
+    <li><b>ExecAndReturn(variable:String, command:String):String</b> - Execute the given command on the system. The output from the command is set into the given variable name.<ul>
+      <li><i>variable</i> - the name of the variable to set</li>
+      <li><i>command</i> - the system command to execute the method to call</li></ul></li></ul></li>
+  <li id="TabBar"><a name="TabBar"></a><h3>TabBar</h3><p class="desc">A TabBar. iOS: UITabBar. Android: TabHost. On Android, tabs are selected by 'tag'.</p><ul>
+    <li><b>Select(value:String):void</b> - Select an item by value.<ul>
+      <li><i>value</i> - the value of the item to select.</li></ul></li>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>item</b> - (array) the text of the item per row (and per section on iOS)</li>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Table"><a name="Table"></a><h3>Table</h3><p class="desc">A component that provides a tabular view of data. iOS: UITableView. Android: Table. Web: Table tag. For web tables, the section specifies the column.</p><ul>
+    <li><b>SelectRow(row:int, section:int):void</b> - Select a row.<ul>
+      <li><i>row</i> - the row to select</li>
+      <li><i>section</i> - the section containing the row, defaults to section #1. (Ignored on Android)</li></ul></li>
+    <li><b>SelectIndicator(row:int, section:int):void</b> - Select the indicator (the icon on the right). Android: Ignored.<ul>
+      <li><i>row</i> - the row to select</li>
+      <li><i>section</i> - the section containing the row, defaults to section #1.</li></ul></li>
+    <li><b>ScrollToRow(row:int, section:int):void</b> - Scroll to a row by row number.<ul>
+      <li><i>row</i> - the row to scroll to</li>
+      <li><i>section</i> - the section containing the row, defaults to section #1. (Ignored on Android)</li></ul></li>
+    <li><b>ScrollToRow(value:String):void</b> - Scroll to a row by value.<ul>
+      <li><i>value</i> - the value of the row to scroll to.</li></ul></li>
+    <li><b>SetEditing(enabled:boolean):void</b> - Enable/disable table editing. iOS: Enabled editing mode for table. Android: ignored.<ul>
+      <li><i>enabled</i> - if true, enable editing, else disable editing.</li></ul></li>
+    <li><b>Insert(row:int, section:int):void</b> - Insert a row into the table. iOS: Inserts a row. Android: Ignored.<ul>
+      <li><i>row</i> - the index of the row after which to insert a new row.</li>
+      <li><i>section</i> - the section containing the row, defaults to section #1.</li></ul></li>
+    <li><b>Remove(row:int, section:int):void</b> - Remove a row from the table. iOS: Deletes the row. Android: Ignored.<ul>
+      <li><i>row</i> - the index of the row to be removed.</li>
+      <li><i>section</i> - the section containing the row, defaults to section #1.</li></ul></li>
+    <li><b>Move(from:int, to:int):void</b> - Move a row. iOS: Moves a row. Android: Ignored.<ul>
+      <li><i>from</i> - the index of the row to be moved.</li>
+      <li><i>to</i> - the destination row for the move.</li></ul></li>
+    <li><b>Select(value:String):void</b> - Select an item by value.<ul>
+      <li><i>value</i> - the value of the item to select.</li></ul></li>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>detail</b> - the detail text of the item per row (and per section on iOS)</li>
+      <li><b>item</b> - (array) the text of the item per row (and per section on iOS)</li>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Teardown"><a name="Teardown"></a><h3>Teardown</h3><p class="desc">A MonkeyTalk script run after each test script in the suite.</p><ul>
+    <li><b>Run(args:String):String</b> - Run the script with the given args.<ul>
+      <li><i>args</i> - the arguments</li></ul></li>
+    <li><b>RunWith(args:String):void</b> - Data-drive the script with the given CSV data file.<ul>
+      <li><i>args</i> - the arguments (where the first arg is the datafile)</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li></ul></li>
+  <li id="Test"><a name="Test"></a><h3>Test</h3><p class="desc">A MonkeyTalk test script run in a suite.</p><ul>
+    <li><b>Run(args:String):String</b> - Run the script with the given args.<ul>
+      <li><i>args</i> - the arguments</li></ul></li>
+    <li><b>RunWith(args:String):void</b> - Data-drive the script with the given CSV data file.<ul>
+      <li><i>args</i> - the arguments (where the first arg is the datafile)</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li></ul></li>
+  <li id="TextArea"><a name="TextArea"></a><h3>TextArea</h3><p class="desc">A multi-line input field. iOS: UITextView. Android: multiline editable TextView.</p><ul>
+    <li><b>EnterText(text:String, hitEnter:String):void</b> - Enter text into the input field.<ul>
+      <li><i>text</i> - the text to enter</li>
+      <li><i>hitEnter</i> - if 'enter', hit the Enter/Return/Done/Next key after entering the text.</li></ul></li>
+    <li><b>Clear():void</b> - Clear text from the input field.</li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b> - the text of the text area</li></ul></li></ul></li>
+  <li id="Toggle"><a name="Toggle"></a><h3>Toggle</h3><p class="desc">An On/Off switch. iOS: UISwitch. Android: ToggleButton</p><ul>
+    <li><b>On():void</b> - Toggle the button on.</li>
+    <li><b>Off():void</b> - Toggle the button off.</li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="ToolBar"><a name="ToolBar"></a><h3>ToolBar</h3><p class="desc">A group of tool buttons. iOS: UIToolBar. Android: ActionBar.</p><ul>
+    <li><b>SelectIndex(itemNumber:int):void</b> - Selects an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to select.</li></ul></li>
+    <li><b>LongSelectIndex(itemNumber:int):void</b> - Long press an item by index.<ul>
+      <li><i>itemNumber</i> - the index of the item to long press.</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>size</b> - the total number of items in the list (per section on iOS)</li>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Vars"><a name="Vars"></a><h3>Vars</h3><p class="desc">Setup and initialize the named variables.</p><ul>
+    <li><b>Define(args:String):void</b> - Define the named variables used in the script, and an optional default value.<ul>
+      <li><i>args</i> - the named variables, in the form of: var1=default var2=default</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="Verifiable"><a name="Verifiable"></a><h3>Verifiable</h3><p class="desc">Base class for all verifiable components.</p><ul>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="VideoPlayer"><a name="VideoPlayer"></a><h3>VideoPlayer</h3><p class="desc">A component that displays videos. iOS: MPMoviePlayerController. Android: VideoView.</p><ul>
+    <li><b>Play():void</b> - Play the video from the current playback point.</li>
+    <li><b>Pause():void</b> - Stop the video at the current playback point.</li>
+    <li><b>Stop():void</b> - Stop the video and set playback to the starting point.</li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b></li></ul></li></ul></li>
+  <li id="View"><a name="View"></a><h3>View</h3><p class="desc">Base class for all UI components. On iOS, monkeyId defaults to the accessibilityLabel. On Android, monkeyId defaults to contentDescription if one exists, otherwise the component's tag value if it has a string value.</p><ul>
+    <li><b>Tap():void</b> - Taps on the component. On Android, plays a 'click'. On iOS, plays a TouchDown/TouchMove/TouchUp sequence.</li>
+    <li><b>LongPress():void</b> - Performs a long press on the component. On Android, plays a 'longClick'. On iOS, plays a longPush gesture.</li>
+    <li><b>TouchDown(x:int, y:int):void</b> - Start touching the component.<ul>
+      <li><i>x</i> - x-coordinate of the touch</li>
+      <li><i>y</i> - y-coordinate of the touch</li></ul></li>
+    <li><b>TouchMove(coords:int):void</b> - Drag across the component<ul>
+      <li><i>coords</i> - one or more (x,y) coordinate pairs specifying the path of the drag gesture</li></ul></li>
+    <li><b>TouchUp(x:int, y:int):void</b> - Stop touching the component.<ul>
+      <li><i>x</i> - x-coordinate of where touch is released</li>
+      <li><i>y</i> - y-coordinate of where touch is released</li></ul></li>
+    <li><b>Pinch(scale:float, velocity:float):void</b> - Pinch the component.<ul>
+      <li><i>scale</i> - The scale factor relative to the points of the two touches in screen coordinates</li>
+      <li><i>velocity</i> - The velocity of the pinch in scale factor per second (read-only)</li></ul></li>
+    <li><b>Swipe(direction:String):void</b> - A simple directional swipe across the component.<ul>
+      <li><i>direction</i> - Left, Right, Up, or Down (case insensitive)</li></ul></li>
+    <li><b>Drag(coords:int):void</b> - Touch down at the first coordinate pair, move from pair to pair for all the given coordinates, and touch up at the last coordinate pair.<ul>
+      <li><i>coords</i> - one or more (x,y) coordinate pairs specifying the path of a drag gesture</li></ul></li>
+    <li><b>Get(variable:String, propPath:String):String</b> - Gets the value of the given property from the component, and set it into the given variable name.<ul>
+      <li><i>variable</i> - the name of the variable to set</li>
+      <li><i>propPath</i> - the property name or path expression (defaults to 'value')</li></ul></li>
+    <li><b>Verify(expectedValue:String, propPath:String, failMessage:String):void</b> - Verifies that a property of the component has some expected value.<ul>
+      <li><i>expectedValue</i> - the expected value of the property. If null, verifies the existence of the component.</li>
+      <li><i>propPath</i> - the property name or property path expression (defaults to 'value')</li>
+      <li><i>failMessage</i> - the custom failure message</li></ul></li>
+    <li><b>VerifyNot(expectedValue:String, propPath:String, failMessage:String):void</b> - Verifies that a property of the component does not have some value.<ul>
+      <li><i>expectedValue</i> - the value the component shouldn't have. If null, verifies the non-existence of the component.</li>
+      <li><i>propPath</i> - the property name or property path expression (defaults to 'value')</li>
+      <li><i>failMessage</i> - the custom failure message</li></ul></li>
+    <li><b>VerifyRegex(regex:String, propPath:String, failMessage:String):void</b> - Verifies that a property of the component matches some regular expression.<ul>
+      <li><i>regex</i> - the regular expression to match</li>
+      <li><i>propPath</i> - the property name or property path expression (defaults to 'value')</li>
+      <li><i>failMessage</i> - the custom failure message</li></ul></li>
+    <li><b>VerifyNotRegex(regex:String, propPath:String, failMessage:String):void</b> - Verifies that a property of the component does not have a value matching a regular expression.<ul>
+      <li><i>regex</i> - the regular expression that should not match.</li>
+      <li><i>propPath</i> - the property name or property path expression (defaults to 'value')</li>
+      <li><i>failMessage</i> - the custom failure message</li></ul></li>
+    <li><b>VerifyWildcard(wildcard:String, propPath:String, failMessage:String):void</b> - Verifies that a property of the component matches some wildcard expression.<ul>
+      <li><i>wildcard</i> - the wildcard expression to match</li>
+      <li><i>propPath</i> - the property name or property path expression (defaults to 'value')</li>
+      <li><i>failMessage</i> - the custom failure message</li></ul></li>
+    <li><b>VerifyNotWildcard(wildcard:String, propPath:String, failMessage:String):void</b> - Verifies that a property of the component does not have a value matching some wildcard expression.<ul>
+      <li><i>wildcard</i> - the wildcard expression that should not match</li>
+      <li><i>propPath</i> - the property name or property path expression (defaults to 'value')</li>
+      <li><i>failMessage</i> - the custom failure message</li></ul></li>
+    <li><a href="#View">more actions inherited from View</a></li>
+    <li><i>Properties:</i><ul>
+      <li><b>value</b></li></ul></li></ul></li>
+</ul>
+<script>
+if (!document.getElementsByClassName) {
+  document.getElementsByClassName = function(cn) {
+    var allT = document.getElementsByTagName('*'), allCN=[], i=0, a;
+    while(a=allT[i++]) {
+      a.className==cn?allCN[allCN.length]=a:null;
+    }
+    return allCN;
+  }
+}
+function showIt(cn) {
+  chk = document.getElementById(cn + 'chk');
+  elems = document.getElementsByClassName(cn);
+  for (var i=0; i<elems.length; i++) {
+    var e = elems[i];
+    e.style.display = (chk.checked ? 'block' : 'none');
+  }
+}
+</script>
+</body>
+</html>

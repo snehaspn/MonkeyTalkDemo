@@ -1,0 +1,20 @@
+*.log
+*.tmp
+.DS_Store
+*.out
+*.jtl
+*.swp
+*.zip
+0
+
+#intellij idea
+.idea
+*.iml
+*.ipr
+*.iws
+
+#gedit
+*.*~
+/flask/*
+/target/*
+*.project
