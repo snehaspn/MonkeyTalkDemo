@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MyTests" xmlns:monkeytalk="antlib:com.gorillalogic.monkeytalk.ant">
+
+<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+  <classpath>
+    <pathelement location="/usr/sneha/ant/lib/ant-contrib-1.0b3.jar"/>
+  </classpath>
+</taskdef>
+
+
+	<property name="platforms.dir" value="/Applications/Xcode.app/Contents/Developer/Platforms" />
+<property name="dev-apps.dir" value="Developer/Applications" />
+<property name="mac-os.dir" value="Contents/MacOS" />
+
+<property name="platform" value="iPhoneSimulator.platform" />
+<property name="app-name" value="iPhone Simulator" />
+
+<property name="ios-sim" location="${platforms.dir}/${platform}/${dev-apps.dir}/${app-name}.app/${mac-os.dir}/${app-name}" />
+
+<target name="simActive">
+    <exec executable="sh" resultproperty="sim.found">
+        <arg value="-c" />
+        <arg value="ps -xaco command | grep ${app-name}" />
+    </exec>
+    <condition property="sim.is.active">
+        <equals arg1="${sim.found}" arg2="0" />
+    </condition>
+</target>
+
+<target name="quitSim" depends="simActive" if="sim.is.active">
+    <exec executable="osascript">
+        <arg value="-e" />
+        <arg value="tell app ${app-name} to quit" />
+    </exec>
+</target>
+
+<property name="ios-app-name" value="DemoTest" />
+<property name="ios-sdk" value="6.1" />
+<property environment = "env" />
+<property name="sim-support" value="${env.HOME}/Library/Application Support/iPhone Simulator" />
+<property name="ios-apps" value="${sim-support}/${ios-sdk}/Applications" />
+
+<propertyregex property="ios-app-escape"
+              input="${ios-apps}"
+              regexp=" "
+              replace="\\\\ "
+              casesensitive="true"
+              override="true" />
+
+<target name="findApp">
+	<echo>${ios-app-escape}</echo>
+    <exec executable="/usr/bin/find" outputproperty="ios-app-path" >
+    	<arg line="'${ios-apps}'" />
+        <arg line="-type d" />
+        <arg line="-name '${ios-app-name}.app'" />
+        <arg value="-print" />
+        <!-- <arg value="${ios-app-escape} -type d -name ${ios-app-name}.app" />
+
+
+
+
+
+
+
+        <arg value="-print" /> -->
+    </exec>
+
+    <propertyregex property="output"
+              input="${ios-app-path}"
+              regexp=" "
+              replace="\\\\ "
+              casesensitive="true"
+              override="true" />
+	<!-- <echo>${ios-app-path}</echo> -->
+
+ </target>
+
+    
+
+<target name="launchApp" depends="quitSim, findApp" >
+	<echo file="test.sh" append="false">"${ios-sim}" -SimulateApplication ${output}/${ios-app-name} </echo>
+    <exec executable="sh" spawn="true">
+        <arg value="./test.sh" />
+    </exec>
+</target>
+
+  <target name="myScript">
+    <monkeytalk:run agent="iOS" script="demo.mt" />
+  </target>
+</project>

@@ -1,0 +1,1 @@
+"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app/Contents/MacOS/iPhone Simulator" -SimulateApplication /Users/sneha/Library/Application\ Support/iPhone\ Simulator/6.1/Applications/24C4B561-7ADE-4303-B885-0220AC42BB98/DemoTest.app/DemoTest 
