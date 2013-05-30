@@ -30,8 +30,8 @@
 
 <target name="quitSim" depends="simActive" if="sim.is.active">
     <exec executable="osascript">
-        <arg value="-e" />
-        <arg value="tell app ${app-name} to quit" />
+        <!-- <arg value="-e" /> -->
+        <arg value="-e tell app &quot;${app-name}&quot; to quit" />
     </exec>
 </target>
 
@@ -55,33 +55,19 @@
         <arg line="-type d" />
         <arg line="-name '${ios-app-name}.app'" />
         <arg value="-print" />
-        <!-- <arg value="${ios-app-escape} -type d -name ${ios-app-name}.app" />
-
-
-
-
-
-
-
-        <arg value="-print" /> -->
     </exec>
-
     <propertyregex property="output"
               input="${ios-app-path}"
               regexp=" "
               replace="\\\\ "
               casesensitive="true"
               override="true" />
-	<!-- <echo>${ios-app-path}</echo> -->
-
  </target>
 
-    
-
-<target name="launchApp" depends="quitSim, findApp" >
-	<echo file="test.sh" append="false">"${ios-sim}" -SimulateApplication ${output}/${ios-app-name} </echo>
+<target name="launchApp" depends="findApp" >
+	<echo file="launchApp.sh" append="false">"${ios-sim}" -SimulateApplication ${output}/${ios-app-name} </echo>
     <exec executable="sh" spawn="true">
-        <arg value="./test.sh" />
+        <arg value="./launchApp.sh" />
     </exec>
 </target>
 
