@@ -36,7 +36,7 @@
 </target>
 
 <property name="ios-app-name" value="DemoTest" />
-<property name="ios-sdk" value="6.1" />
+<property name="ios-sdk" value="6.0" />
 <property environment = "env" />
 <property name="sim-support" value="${env.HOME}/Library/Application Support/iPhone Simulator" />
 <property name="ios-apps" value="${sim-support}/${ios-sdk}/Applications" />
