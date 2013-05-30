@@ -51,7 +51,7 @@
 <target name="findApp">
 	<echo>${ios-app-escape}</echo>
 	<exec executable="/usr/bin/find" outputproperty="ios-app-path" >
-    	<arg line="'${HOME}/.hudson/jobs/MonkeyTalk'" />
+    	<arg line="${HOME}/.hudson/jobs/MonkeyTalk" />
         <arg line="-type d" />
         <arg line="-name '${ios-app-name}.app'" />
         <arg value="-print" />
