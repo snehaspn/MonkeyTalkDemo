@@ -73,7 +73,7 @@
  </target>
 
 <target name="launchApp" depends="findApp" >
-	<echo file="launchApp.sh" append="false">"${ios-sim}" -SimulateApplication ${output}/${ios-app-name} </echo>
+	<echo file="launchApp.sh" append="false">"${ios-sim}" -SimulateApplication ${ios-app-path}/${ios-app-name} </echo>
     <exec executable="sh" spawn="true">
         <arg value="./launchApp.sh" />
     </exec>
