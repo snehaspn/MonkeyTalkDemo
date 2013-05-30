@@ -20,7 +20,8 @@
 <target name="simActive">
     <exec executable="sh" resultproperty="sim.found">
         <arg value="-c" />
-        <arg value="ps -xaco command | grep ${app-name}" />
+        <arg value="ps -xaco command" />
+        <!-- <arg value="ps -xaco command | grep ${app-name}" /> -->
     </exec>
     <condition property="sim.is.active">
         <equals arg1="${sim.found}" arg2="0" />
