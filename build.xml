@@ -48,7 +48,7 @@
               casesensitive="true"
               override="true" />
 
-<property name="jenkins-app" value="${HOME}/.hudson/jobs/MonkeyTalk" />
+<property name="jenkins-app" value="${env.HOME}/.hudson/jobs/MonkeyTalk" />
 <target name="findApp">
 	<echo>${ios-app-escape}</echo>
 	<exec executable="/usr/bin/find" outputproperty="ios-app-path" >
