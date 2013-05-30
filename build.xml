@@ -69,6 +69,7 @@
               replace="\\\\ "
               casesensitive="true"
               override="true" />
+              <echo>${output}</echo>
  </target>
 
 <target name="launchApp" depends="findApp" >
