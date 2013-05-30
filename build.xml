@@ -55,6 +55,7 @@
         <arg line="-type d" />
         <arg line="-name '${ios-app-name}.app'" />
         <arg value="-print" />
+        <echo>${ios-app-path}</echo>
     <!-- <exec executable="/usr/bin/find" outputproperty="ios-app-path" >
     	<arg line="'${ios-apps}'" />
         <arg line="-type d" />
